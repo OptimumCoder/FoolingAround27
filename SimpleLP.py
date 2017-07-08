@@ -28,7 +28,7 @@ if model.status == GRB.Status.INF_OR_UNBD:
 
 if model.status == GRB.Status.OPTIMAL:
     print('Optimal objective: %g' % model.objVal)
-    model.write('model.sol')
+    model.write('./logs/model.sol')
     exit(0)
 elif model.status != GRB.Status.INFEASIBLE:
     print('Optimization was stopped with status %d' % model.status)
@@ -40,5 +40,5 @@ elif model.status != GRB.Status.INFEASIBLE:
 print('')
 print('Model is infeasible')
 model.computeIIS()
-model.write("model.ilp")
+model.write("./log/model.ilp")
 print("IIS written to file 'model.ilp'")
